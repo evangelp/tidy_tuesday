@@ -7,7 +7,7 @@ astronauts <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience
 astro <- astronauts %>%
   mutate(age = year_of_mission - year_of_birth) %>%
   filter(mission_number == 1) %>%
-  mutate(days = (hours_mission / 24)) %>%
+  mutate(days = (hours_mission / 24))
 
 
 # --------graph-----------
@@ -21,7 +21,7 @@ astro_age_graph <- ggplot(astro) +
   scale_color_continuous_sequential(palette = "Sunset") + 
   labs(
     title = "Age of Astronaut on Their First Mission",
-    subtitle = "Sizes increased based on days spent in space",
+    subtitle = "Points increase based on # of days spent in space",
     x = "", y = "",
     caption = "Data from Mariya Stavnichuk and Tatsuya Corlett, used for Tidy Tuesday"
   ) +
@@ -58,9 +58,9 @@ astro_age_graph <- ggplot(astro) +
     color = "white", size = 3
   ) +
   geom_curve(
-    aes(x = 2013, y = 31, xend = 2016, yend = 41.5),
+    aes(x = 2013, y = 31, xend = 2016, yend = 42),
     arrow = arrow(length = unit(0.03, "npc")),
-    color = "white", linetype = "dotted"
+    color = "#DD7538", linetype = "dotted"
   ) + 
   annotate(
     "text", x = 2013, y = 30,
@@ -69,9 +69,7 @@ astro_age_graph <- ggplot(astro) +
     color = "white", size = 3
   )
 
-astro_age_graph
 
-ggsave(here("Dropbox", "projects", "tidy_tuesday", "astronauts",
-       "tidytues_astronauts_graph.png"),
+
+ggsave(here("tidytues_astronauts_graph.png"),
        dpi = 300,  width = 11, height = 8)
-
