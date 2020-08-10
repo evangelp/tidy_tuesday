@@ -118,7 +118,7 @@ energy_both <- top_10_2018_plot /
   renewables_plot
 
 energy_both <- energy_both + plot_annotation(
-  caption = 'Data: Eurostat for Tidy Tuesday | Twwitter: @epenumaka'
+  caption = 'Data: Eurostat for Tidy Tuesday | Twitter: @epenumaka'
   )
   
 ggsave(here("energy_plot.png"),
